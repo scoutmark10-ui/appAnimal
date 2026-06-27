@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cadastrar Animal</title>
+        <link rel="stylesheet" href="css/index.css" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🐾 Novo Animal</h1>
+
+            <form id="form_animal">
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Nome do animal"
+                    required
+                />
+
+                <input type="number" id="idade" placeholder="Idade" required />
+
+                <select id="sexo" required>
+                    <option value="">Sexo</option>
+                    <option value="macho">Macho</option>
+                    <option value="femea">Fêmea</option>
+                </select>
+
+                <input type="text" id="cor" placeholder="Cor" required />
+
+                <button type="submit">Gravar Animal</button>
+            </form>
+
+    <a class="btn" href="index.html"> ← Voltar </a>
+        </div>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>

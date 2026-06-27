@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Animais</title>
+        <link rel="stylesheet" href="css/index.css" />
+    
+        <!-- link de axios --> 
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+         <!-- notification toast --> 
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+        <!-- alerts -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Animais Cadastrados</h1>
+
+            <input type="text" id="buscar" placeholder="Buscar pelo nome" />
+
+            <div class="botoes">
+                <button class="btn" onclick="buscarAnimal()">Buscar</button>
+                <button class="btn" onclick="resetLista()">Reset Lista</button>
+            </div>
+
+            <ul id="lista-animais"></ul>
+
+            <a class="btn" href="index.html">← Voltar</a>
+        </div>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>

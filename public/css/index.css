@@ -1,0 +1,279 @@
+/* ===========================
+   RESET
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   PÁGINA
+=========================== */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #3498db;
+  min-height: 100vh;
+  padding: 30px;
+  color: #333;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   TÍTULOS
+=========================== */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+h2 {
+  color: #34495e;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+/* ===========================
+   TEXTO
+=========================== */
+p {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   MENU DA HOME
+=========================== */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  background: #3498db;
+  color: white;
+  padding: 18px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================
+   FORMULÁRIO
+=========================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dcdde1;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+/* ===========================
+   VALIDAÇÃO
+=========================== */
+input:invalid,
+select:invalid {
+  border-color: #e74c3c;
+}
+
+input:valid,
+select:valid {
+  border-color: #2ecc71;
+}
+
+/* ===========================
+   BOTÕES
+=========================== */
+button,
+input[type="submit"] {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.botoes {
+
+display: flex;
+gap: 10px;
+
+}
+
+.btn {
+display: inline-block;
+background: #3498db;
+  color: white;
+  border: none;
+  padding: 14px;
+width: 50%;
+margin-top: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* ===========================
+   ÁREA DE BUSCA
+=========================== */
+.busca {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.busca input {
+  flex: 1;
+}
+
+/* ===========================
+   LISTA DE ANIMAIS
+=========================== */
+ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+li {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+li:hover {
+  transform: translateY(-3px);
+}
+
+li strong {
+  color: #2c3e50;
+  font-size: 22px;
+}
+
+/* ===========================
+   BOTÃO ELIMINAR
+=========================== */
+.btn-eliminar {
+  background: #e74c3c;
+  margin-top: 15px;
+}
+
+.btn-eliminar:hover {
+  background: #c0392b;
+}
+
+/* ===========================
+   LINKS
+=========================== */
+a {
+  text-decoration: none;
+}
+
+.voltar {
+  display: inline-block;
+  margin-top: 20px;
+  background: #2ecc71;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.voltar:hover {
+  background: #27ae60;
+}
+
+/* ===========================
+   RODAPÉ
+=========================== */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    padding: 25px;
+  }
+
+  .menu,
+  .busca {
+    flex-direction: column;
+  }
+
+  .menu a,
+  button,
+  input,
+  select {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+}
