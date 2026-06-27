@@ -76,7 +76,7 @@ function renderizarAnimais(lista) {
 // ================================
 async function carregarAnimais() {
     const container = document.getElementById("lista-animais");
-    const response = await axios.get("http://localhost:8000/animais");
+    const response = await axios.get("https://app-animal.vercel.app/animais");
 
     todosAnimais = response.data;
     // guarda original
@@ -108,7 +108,7 @@ function guardarAnimal() {
         if (idade <= 0) {
             erro("Idade inválida");
         } else {
-            await axios.post("http://localhost:8000/animais", {
+            await axios.post("https://app-animal.vercel.app/animais", {
                 nome: nome,
                 idade: idade,
                 sexo: sexo,
@@ -167,7 +167,7 @@ async function eliminar(id) {
     }
 
     try {
-        await axios.delete(`http://localhost:8000/animais/${id}`);
+        await axios.delete(`https://app-animal.vercel.app/animais/${id}`);
         sucesso("Animal eliminado com sucesso");
 
         carregarAnimais();

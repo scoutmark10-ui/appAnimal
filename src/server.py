@@ -7,10 +7,12 @@ from uuid import uuid4
 app = FastAPI(
  title = "App Animal API",
  description = "API criada por Zynko para estudos de FastAPI.",
-  version = "1.0.0"
+  version = "1.0.0",
+  docs_url="/docs",
+  redoc_url="/redoc"
 )
 
-origins = ['http://localhost:8000']
+origins = ['https://app-animal.vercel.app']
 
 app.add_middleware(
     CORSMiddleware,
