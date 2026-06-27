@@ -1,3 +1,5 @@
+const URL_API = "https://animal-api-qwny.onrender.com"
+
 function sucesso(msg) {
     Toastify({
         text: msg,
@@ -76,7 +78,7 @@ function renderizarAnimais(lista) {
 // ================================
 async function carregarAnimais() {
     const container = document.getElementById("lista-animais");
-    const response = await axios.get("https://app-animal.vercel.app/animais");
+    const response = await axios.get(`${URL_API}/animais`);
 
     todosAnimais = response.data;
     // guarda original
@@ -108,7 +110,7 @@ function guardarAnimal() {
         if (idade <= 0) {
             erro("Idade inválida");
         } else {
-            await axios.post("https://app-animal.vercel.app/animais", {
+            await axios.post(`${URL_API}/animais`, {
                 nome: nome,
                 idade: idade,
                 sexo: sexo,
@@ -167,7 +169,7 @@ async function eliminar(id) {
     }
 
     try {
-        await axios.delete(`https://app-animal.vercel.app/animais/${id}`);
+        await axios.delete(`${URL_API}/animais/${id}`);
         sucesso("Animal eliminado com sucesso");
 
         carregarAnimais();
