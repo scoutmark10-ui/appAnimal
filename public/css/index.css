@@ -1,24 +1,25 @@
 /* ===========================
-   VARIÁVEIS
+   VARIÁVEIS - APENAS AZUL
 =========================== */
 :root {
-  --primary: #3498db;
-  --primary-dark: #2980b9;
-  --primary-light: #5faee3;
-  --primary-gradient: linear-gradient(135deg, #3498db, #2ecc71);
-  --success: #2ecc71;
-  --success-dark: #27ae60;
-  --danger: #e74c3c;
-  --danger-dark: #c0392b;
-  --warning: #f39c12;
-  --text: #2c3e50;
-  --text-light: #7f8c8d;
-  --bg: #f0f8ff;
+  --primary: #1a73e8;
+  --primary-dark: #1557b0;
+  --primary-light: #4a8df7;
+  --primary-lighter: #e8f0fe;
+  --primary-bg: #f0f7ff;
+  --text: #202124;
+  --text-light: #5f6368;
+  --text-lighter: #9aa0a6;
   --white: #ffffff;
-  --shadow: rgba(52, 152, 219, 0.2);
-  --shadow-strong: rgba(0, 0, 0, 0.15);
-  --radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(26, 115, 232, 0.12);
+  --shadow-lg: 0 8px 30px rgba(26, 115, 232, 0.18);
+  --radius: 16px;
+  --radius-sm: 10px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --danger: #dc3545;
+  --danger-dark: #b02a37;
+  --success: #28a745;
 }
 
 /* ===========================
@@ -39,33 +40,30 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
                'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  background: var(--primary-bg);
   min-height: 100vh;
-  padding: clamp(15px, 5vw, 30px);
+  padding: 12px;
   color: var(--text);
   line-height: 1.6;
 }
 
 /* ===========================
-   CONTAINER
+   CONTAINER - MOBILE FIRST
 =========================== */
 .container {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 24px;
-  padding: clamp(25px, 5vw, 45px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.6s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.4s ease;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -78,14 +76,9 @@ body {
 =========================== */
 .logo {
   text-align: center;
-  font-size: 4rem;
-  margin-bottom: 0.25rem;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  font-size: 3.2rem;
+  margin-bottom: 0.15rem;
+  display: block;
 }
 
 /* ===========================
@@ -94,21 +87,23 @@ body {
 h1 {
   text-align: center;
   color: var(--text);
-  margin-bottom: 0.5rem;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 800;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: 0.4rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 .highlight {
+  color: var(--primary);
 }
 
 h2 {
   color: var(--text);
-  margin: 2rem 0 1.25rem 0;
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  border-bottom: 3px solid var(--primary);
-  padding-bottom: 0.5rem;
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--primary-lighter);
 }
 
 /* ===========================
@@ -117,49 +112,30 @@ h2 {
 p {
   text-align: center;
   color: var(--text-light);
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
 }
 
 /* ===========================
-   MENU DA HOME
+   MENU DA HOME - MOBILE FIRST
 =========================== */
 .menu {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 1.5rem;
 }
 
 .menu a {
   text-decoration: none;
-  padding: 1rem 2.5rem;
-  border-radius: var(--radius);
-  font-weight: bold;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
   transition: var(--transition);
-  min-width: 180px;
   text-align: center;
+  font-size: 1rem;
   position: relative;
   overflow: hidden;
-  font-size: 1.05rem;
-}
-
-.menu a::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2));
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.menu a:hover {
-  transform: translateY(-5px);
-}
-
-.menu a:hover::after {
-  opacity: 1;
 }
 
 .menu a:active {
@@ -167,27 +143,27 @@ p {
 }
 
 .menu .cadastrar {
-  background: var(--primary-gradient);
-  color: white;
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
 }
 
 .menu .cadastrar:hover {
-  box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4);
+  background: var(--primary-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 .menu .animais {
-  background: white;
+  background: var(--primary-lighter);
   color: var(--primary);
   border: 2px solid var(--primary);
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.1);
 }
 
 .menu .animais:hover {
   background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-  box-shadow: 0 12px 35px rgba(52, 152, 219, 0.3);
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
 /* ===========================
@@ -196,43 +172,38 @@ p {
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 14px;
 }
 
 /* ===========================
-   INPUTS
+   INPUTS - MOBILE FIRST
 =========================== */
 input,
 select,
 textarea {
   width: 100%;
-  padding: 0.875rem 1.2rem;
-  border: 2px solid #e8edf2;
-  border-radius: var(--radius);
+  padding: 12px 14px;
+  border: 2px solid #e8eaed;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   font-family: inherit;
   outline: none;
   transition: var(--transition);
   background: var(--white);
   color: var(--text);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
-  transform: translateY(-1px);
-}
-
-input:disabled,
-select:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.12);
 }
 
 input::placeholder {
-  color: #adb5bd;
+  color: var(--text-lighter);
 }
 
 /* ===========================
@@ -248,37 +219,37 @@ select:valid:not(:placeholder-shown) {
   border-color: var(--success);
 }
 
-input:invalid:focus:not(:placeholder-shown),
-select:invalid:focus:not(:placeholder-shown) {
-  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.15);
-}
-
 /* ===========================
-   BOTÕES GERAIS
+   BOTÕES - MOBILE FIRST
 =========================== */
 button,
 input[type="submit"],
 .btn {
-  background: var(--primary-dark);
+  background: var(--primary);
   color: var(--white);
   border: none;
-  padding: 0.875rem 1.8rem;
-  border-radius: var(--radius);
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   text-align: center;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   min-height: 48px;
-  letter-spacing: 0.3px;
+  width: 100%;
+  letter-spacing: 0.2px;
 }
 
 button:hover,
 input[type="submit"]:hover,
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.35);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 button:active,
@@ -294,147 +265,181 @@ input[type="submit"]:disabled {
   transform: none !important;
 }
 
-button:focus-visible,
-input[type="submit"]:focus-visible {
-  outline: 3px solid var(--primary);
-  outline-offset: 2px;
-}
-
 /* ===========================
-   BOTOES EM GRUPO
+   BOTOES EM GRUPO - MOBILE FIRST
 =========================== */
 .botoes {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
   margin: 0.5rem 0;
 }
 
 .botoes .btn {
-  flex: 1;
-  min-width: 120px;
+  width: 100%;
+  min-width: unset;
 }
 
 /* ===========================
-   ÁREA DE BUSCA
+   ÁREA DE BUSCA - MOBILE FIRST
 =========================== */
 #buscar {
   width: 100%;
-  padding: 0.875rem 1.2rem;
-  border: 2px solid #e8edf2;
-  border-radius: var(--radius);
+  padding: 12px 14px;
+  border: 2px solid #e8eaed;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   transition: var(--transition);
-  margin-bottom: 1rem;
+  margin-bottom: 12px;
 }
 
 #buscar:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.12);
 }
 
 /* ===========================
-   LISTA DE ANIMAIS
+   CARDS - MOBILE FIRST
 =========================== */
 #lista-animais {
   list-style: none;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 12px;
 }
 
 #lista-animais li {
   background: var(--white);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  border-left: 5px solid var(--primary);
+  border: 1px solid #e8eaed;
   position: relative;
-  animation: slideIn 0.4s ease;
+  animation: slideIn 0.3s ease;
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
 #lista-animais li:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(52, 152, 219, 0.15);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 #lista-animais li strong {
   color: var(--text);
-  font-size: 1.3rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-#lista-animais li .info {
-  color: var(--text-light);
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
-#lista-animais li .info span {
-  display: inline-block;
-  background: #eef3f7;
-  padding: 0.2rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
+#lista-animais li strong .emoji {
+  font-size: 1.4rem;
+}
+
+#lista-animais li .info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  margin-bottom: 12px;
+}
+
+#lista-animais li .info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+#lista-animais li .info-item .label {
+  color: var(--text-lighter);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+#lista-animais li .info-item .value {
   color: var(--text);
+  font-weight: 500;
+}
+
+#lista-animais li .info-item .badge {
+  display: inline-block;
+  background: var(--primary-lighter);
+  color: var(--primary);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 /* ===========================
-   BOTÃO ELIMINAR NA LISTA
+   BOTÃO ELIMINAR NOS CARDS
 =========================== */
-#lista-animais li button {
+#lista-animais li .card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f3f4;
+}
+
+#lista-animais li .card-actions button {
   background: var(--danger);
-  padding: 0.6rem 1.5rem;
-  font-size: 0.9rem;
+  padding: 8px 16px;
+  font-size: 0.85rem;
   border-radius: 8px;
-  margin-top: 0.5rem;
-  min-height: 40px;
+  min-height: 36px;
+  width: auto;
+  flex: 1;
   border: none;
-  color: white;
+  color: var(--white);
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
 }
 
-#lista-animais li button:hover {
+#lista-animais li .card-actions button:hover {
   background: var(--danger-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+#lista-animais li .card-actions .btn-editar {
+  background: var(--primary-lighter);
+  color: var(--primary);
+}
+
+#lista-animais li .card-actions .btn-editar:hover {
+  background: var(--primary);
+  color: var(--white);
 }
 
 /* ===========================
    BOTÃO VOLTAR
 =========================== */
-.btn[href*="index.html"] {
-  background: var(--success);
-  margin-top: 1.5rem;
-  width: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.btn-voltar {
+  background: var(--primary-lighter) !important;
+  color: var(--primary) !important;
+  margin-top: 1.2rem;
 }
 
-.btn[href*="index.html"]:hover {
-  background: var(--success-dark);
-  box-shadow: 0 8px 25px rgba(46, 204, 113, 0.35);
-  transform: translateX(-4px) translateY(-3px);
+.btn-voltar:hover {
+  background: var(--primary) !important;
+  color: var(--white) !important;
 }
 
 /* ===========================
@@ -455,34 +460,45 @@ a:hover {
 =========================== */
 .footer {
   text-align: center;
-  margin-top: 2.5rem;
-  color: var(--text-light);
-  font-size: 0.875rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 2rem;
+  color: var(--text-lighter);
+  font-size: 0.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #f1f3f4;
 }
 
 /* ===========================
    TOASTIFY PERSONALIZADO
 =========================== */
 .toastify {
-  border-radius: var(--radius) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-md) !important;
   font-family: inherit !important;
-  padding: 12px 20px !important;
+  padding: 12px 16px !important;
+  font-size: 0.9rem !important;
+}
+
+.toastify .toast-close {
+  font-size: 1.2rem !important;
 }
 
 /* ===========================
    SWEETALERT2 PERSONALIZADO
 =========================== */
 .swal2-popup {
-  border-radius: 20px !important;
+  border-radius: var(--radius) !important;
   font-family: inherit !important;
+  padding: 2rem !important;
+}
+
+.swal2-title {
+  font-size: 1.3rem !important;
+  color: var(--text) !important;
 }
 
 .swal2-confirm {
   background: var(--danger) !important;
-  border-radius: var(--radius) !important;
+  border-radius: var(--radius-sm) !important;
   font-weight: 600 !important;
   padding: 10px 30px !important;
 }
@@ -493,78 +509,33 @@ a:hover {
 }
 
 .swal2-cancel {
-  background: #95a5a6 !important;
-  border-radius: var(--radius) !important;
+  background: #e8eaed !important;
+  color: var(--text) !important;
+  border-radius: var(--radius-sm) !important;
   font-weight: 600 !important;
   padding: 10px 30px !important;
 }
 
 /* ===========================
-   RESPONSIVO
+   SCROLLBAR PERSONALIZADA
 =========================== */
-@media (max-width: 768px) {
-  .container {
-    padding: 1.5rem;
-    border-radius: 20px;
-  }
-
-  .menu a {
-    min-width: 100%;
-    padding: 0.875rem 1.5rem;
-  }
-
-  .botoes {
-    flex-direction: column;
-  }
-
-  .botoes .btn {
-    width: 100%;
-    min-width: unset;
-  }
-
-  #lista-animais li .info {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .logo {
-    font-size: 3rem;
-  }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+  border-radius: 10px;
+}
 
-  .container {
-    padding: 1rem;
-    border-radius: 16px;
-  }
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
 
-  h1 {
-    font-size: 1.75rem;
-  }
-
-  button,
-  input[type="submit"],
-  .btn {
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-    min-height: 44px;
-  }
-
-  #lista-animais li {
-    padding: 1rem;
-  }
-
-  #lista-animais li strong {
-    font-size: 1.1rem;
-  }
-
-  .logo {
-    font-size: 2.5rem;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
 }
 
 /* ===========================
@@ -581,10 +552,10 @@ a:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 30px;
-  height: 30px;
-  border: 3px solid var(--primary);
-  border-top-color: transparent;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--primary-lighter);
+  border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   transform: translate(-50%, -50%);
@@ -595,32 +566,99 @@ a:hover {
 }
 
 /* ===========================
-   SCROLLBAR PERSONALIZADA
+   TABLET (768px)
 =========================== */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+@media (min-width: 768px) {
+  body {
+    padding: 24px;
+  }
+
+  .container {
+    max-width: 700px;
+    padding: 32px 36px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .logo {
+    font-size: 4rem;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .menu a {
+    flex: 1;
+    padding: 16px 24px;
+    font-size: 1.05rem;
+  }
+
+  .botoes {
+    flex-direction: row;
+  }
+
+  .botoes .btn {
+    width: auto;
+    flex: 1;
+  }
+
+  #lista-animais li .info-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #lista-animais li .card-actions {
+    justify-content: flex-end;
+  }
+
+  #lista-animais li .card-actions button {
+    flex: 0 1 auto;
+    min-width: 100px;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #f0f8ff;
-  border-radius: 10px;
-}
+/* ===========================
+   DESKTOP (1024px)
+=========================== */
+@media (min-width: 1024px) {
+  body {
+    padding: 40px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--primary-gradient);
-  border-radius: 10px;
-  border: 2px solid #f0f8ff;
-}
+  .container {
+    max-width: 900px;
+    padding: 40px 48px;
+    border-radius: 24px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .menu a {
+    padding: 18px 32px;
+    font-size: 1.1rem;
+  }
+
+  #lista-animais li {
+    padding: 20px 24px;
+  }
+
+  #lista-animais li strong {
+    font-size: 1.3rem;
+  }
 }
 
 /* ===========================
    UTILITÁRIOS
 =========================== */
 .text-center { text-align: center; }
+.text-muted { color: var(--text-light); }
 
 .mt-1 { margin-top: 0.5rem; }
 .mt-2 { margin-top: 1rem; }
@@ -632,8 +670,11 @@ a:hover {
 .mb-3 { margin-bottom: 1.5rem; }
 
 .d-flex { display: flex; }
+.flex-column { flex-direction: column; }
 .gap-1 { gap: 0.5rem; }
 .gap-2 { gap: 1rem; }
 .flex-wrap { flex-wrap: wrap; }
 .align-center { align-items: center; }
 .justify-between { justify-content: space-between; }
+
+.w-100 { width: 100%; }
